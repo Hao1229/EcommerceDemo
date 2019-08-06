@@ -3,14 +3,20 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
 import 'bootstrap'
 import App from './App'
 import router from './router'
+import './bus'
 
 axios.defaults.withCredentials = true
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
+
+Vue.component('Loading', Loading)
+// Vue.use(Loading)
 
 /* eslint-disable no-new */
 new Vue({

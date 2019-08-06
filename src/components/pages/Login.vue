@@ -1,5 +1,12 @@
 <template>
 <div>
+  <loading :active.sync="isLoading" :is-full-page="true">
+        <template slot="before">I am</template>
+        <template slot="default">
+         <i class="fas fa-spinner fa-spin"></i>
+        </template>
+        <template slot="after">loading</template>
+  </loading>
     <form class="form-signin" @submit.prevent="signin">
     <h1 class="h3 mb-3 font-weight-normal">請先登入</h1>
     <label for="inputEmail" class="sr-only">Email address</label>
@@ -25,18 +32,22 @@ export default {
       user: {
         username: '',
         password: ''
-      }
+      },
+      isLoading: false
     }
   },
   methods: {
     signin: function () {
       const api = `${process.env.APIPATH}/admin/signin`
       const vm = this
+      vm.isLoading = true
       this.$http.post(api, vm.user).then((response) => {
         console.log(response.data, this)
         if (response.data.success === true) {
           vm.$router.push('/admin/products')
+          vm.isLoading = false
         } else {
+          vm.isLoading = false
           alert('帳號密碼有誤')
         }
       })
