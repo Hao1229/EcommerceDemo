@@ -1,11 +1,4 @@
 <template>
-      <!-- <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item" :class="{'disabled':pagination.current_page === 1}"><a class="page-link" href="#" @click.prevent="getProducts(pagination.current_page - 1)">Previous</a></li>
-        <li class="page-item" v-for="page in pagination.total_pages" :key='page' :class="{'active':pagination.current_page === page}"><a class="page-link" href="#" @click.prevent="getProducts(page)">{{page}}</a></li>
-        <li class="page-item" :class="{'disabled':pagination.current_page === pagination.total_pages}"><a class="page-link" href="#" @click.prevent="getProducts(pagination.current_page + 1)">Next</a></li>
-      </ul>
-    </nav> -->
      <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item" :class="{'disabled':getPagination.current_page === 1}"><a class="page-link" href="#" @click.prevent="judgePage(getPagination.current_page - 1)">Previous</a></li>

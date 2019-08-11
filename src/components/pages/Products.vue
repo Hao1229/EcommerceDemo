@@ -25,8 +25,8 @@
         <tr v-for="item in products" :key="item.id">
           <td>{{item.category}}</td>
           <td>{{item.title}}</td>
-          <td class="text-right">{{item.origin_price}}</td>
-          <td class="text-right">{{item.price}}</td>
+          <td class="text-right">{{item.origin_price | currency}}</td>
+          <td class="text-right">{{item.price | currency}}</td>
           <td>
             <span>未啟用</span>
             <span v-if="item.is_enabled == 1" class="text-success">啟用</span>
@@ -40,7 +40,7 @@
         </tr>
       </tbody>
     </table>
-    <Pagination :getPagination = 'pagination' @changePage="getProducts" v-if="pagination.total_pages"></Pagination>
+    <Pagination :getPagination = 'pagination' @changePage="getProducts"></Pagination>
     <!-- <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li class="page-item" :class="{'disabled':pagination.current_page === 1}"><a class="page-link" href="#" @click.prevent="getProducts(pagination.current_page - 1)">Previous</a></li>

@@ -56,6 +56,8 @@ export default {
 }
 </script>
 <style scoped>
+@import url("@fortawesome/fontawesome-free/css/all.css");
+
 html,
 body {
   height: 100%;
